@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Web Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+        }
+        label, p {
+            margin: 10px 0 5px;
+        }
+        input, select, button {
+            margin-bottom: 15px;
+        }
+        .range-container {
+            display: flex;
+            align-items: center;
+        }
+        .range-container span {
+            margin-left: 10px;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function updateRangeValue(val) {
+            document.getElementById('rangeValue').textContent = val;
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Comprehensive Web Form</h1>
+
+    <form action="#" method="post">
+
+        <!-- Email Input -->
+        <label for="email" aria-label="Email Address">Email Address:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required aria-required="true">
+
+        <!-- Number Input -->
+        <label for="quantity" aria-label="Quantity">Enter Quantity:</label>
+        <input type="number" id="quantity" name="quantity" placeholder="0" min="1" max="100" step="1" required aria-required="true">
+
+        <!-- Date Input -->
+        <label for="date" aria-label="Date">Select a Date:</label>
+        <input type="date" id="date" name="date" min="2024-01-01" max="2024-12-31" required aria-required="true">
+
+        <!-- Range Input -->
+        <label for="range" aria-label="Rating">Select Rating (1-10):</label>
+        <div class="range-container">
+            <input type="range" id="range" name="range" min="1" max="10" step="1" oninput="updateRangeValue(this.value)" aria-valuemin="1" aria-valuemax="10" aria-valuenow="5">
+            <span id="rangeValue">5</span>
+        </div>
+
+        <!-- Color Input -->
+        <label for="color" aria-label="Color">Pick a Color:</label>
+        <input type="color" id="color" name="color" value="#ff0000" aria-required="true">
+
+        <!-- Select Menu -->
+        <label for="language" aria-label="Favorite Programming Language">Favorite Programming Language:</label>
+        <select id="language" name="language" aria-required="true">
+            <option value="python">Python</option>
+            <option value="javascript">JavaScript</option>
+            <option value="java">Java</option>
+            <option value="csharp">C#</option>
+        </select>
+
+        <!-- Radio Buttons -->
+        <p>Level of Expertise:</p>
+        <input type="radio" id="beginner" name="expertise" value="beginner" aria-label="Beginner">
+        <label for="beginner">Beginner</label>
+        <input type="radio" id="intermediate" name="expertise" value="intermediate" aria-label="Intermediate">
+        <label for="intermediate">Intermediate</label>
+        <input type="radio" id="advanced" name="expertise" value="advanced" aria-label="Advanced">
+        <label for="advanced">Advanced</label>
+
+        <!-- Checkboxes -->
+        <p>Preferred Development Platforms:</p>
+        <input type="checkbox" id="web" name="platform" value="web" aria-label="Web">
+        <label for="web">Web</label>
+        <input type="checkbox" id="mobile" name="platform" value="mobile" aria-label="Mobile">
+        <label for="mobile">Mobile</label>
+        <input type="checkbox" id="desktop" name="platform" value="desktop" aria-label="Desktop">
+        <label for="desktop">Desktop</label>
+
+        <!-- Submit Button -->
+        <button type="submit" aria-label="Submit Form">Submit</button>
+
+    </form>
+
+</body>
+</html>
